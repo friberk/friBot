@@ -11,6 +11,7 @@ public class FriBotMsgEvents
     // Properties
 
     int keremCounter = 0;
+    static final String KEREM_ID = "198374148852940800";
     
     // Constructors
     
@@ -31,8 +32,13 @@ public class FriBotMsgEvents
     {
         FriBotMain.getClient().getEventDispatcher().on(MessageCreateEvent.class)
         .map(MessageCreateEvent::getMessage)
-        .filter(message -> message.getAuthor().map(user -> !user.isBot()).orElse(false))
-        .filter(message -> message.getAuthor().map(user -> { keremCounter = keremCounter + 1; return user.getId().asString().equals( "198374148852940800"); }).orElse(false) )
+        .filter(message -> message.getAuthor().map(user -> user.getId()
+                                                               .asString()
+                                                               .equals(KEREM_ID)).orElse(false)) // isBot check is redundant since the ID is known
+        .filter(message -> {
+            keremCounter++;
+            return true;
+        }) // Stupid "filter"
         .flatMap(Message::getChannel)
         .flatMap(channel -> channel.createMessage("test"))
         .subscribe();
