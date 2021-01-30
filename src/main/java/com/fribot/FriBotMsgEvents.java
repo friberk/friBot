@@ -11,7 +11,6 @@ public class FriBotMsgEvents
     // Properties
 
     int keremCounter = 0;
-    static final String KEREM_ID = "198374148852940800";
     
     // Constructors
     
@@ -35,10 +34,11 @@ public class FriBotMsgEvents
         .filter(message -> message.getAuthor().map(user -> user.getId()
                                                                .asString()
                                                                .equals(KEREM_ID))
-                                              .orElse(false)) // isBot check is redundant since the ID is known
+                                                               .orElse(false)) // isBot check is redundant since the ID is known
         .filter(message -> {
             keremCounter++;
             return keremCounter % 5 == 0; // Send on every 5 messages
+
         }) // Stupid "filter"
         .flatMap(Message::getChannel)
         .flatMap(channel -> channel.createMessage("test"))
