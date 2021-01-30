@@ -16,7 +16,7 @@ public class FriBotMain
     {
         GatewayDiscordClient client; 
         
-        client = DiscordClientBuilder.create("ODA1MDM2NDUxNDY1MTM0MTAw.YBVCng.jRcRFdCYsO2UiCQKnEXep13mMMQ")
+        client = DiscordClientBuilder.create("TOKEN")
         .build()
         .login()
         .block();
