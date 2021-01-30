@@ -33,7 +33,7 @@ public class FriBotMsgEvents
         .map(MessageCreateEvent::getMessage)
         .filter(message -> message.getAuthor().map(user -> user.getId()
                                                                .asString()
-                                                               .equals( "198374148852940800")).orElse(false)) // isBot check is redundant since the ID is known
+                                                               .equals( "KEREM_ID")).orElse(false)) // isBot check is redundant since the ID is known
         .filter(message -> {
             this.keremCounter++;
             return true;
