@@ -38,6 +38,7 @@ public class FriBotMain
 
         msgEvents.chatMsgEvent();
         msgEvents.kerem();
+        msgEvents.deleteGeneral();
         
         getClient().onDisconnect().block();
     }
