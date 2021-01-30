@@ -33,13 +33,12 @@ public class FriBotMsgEvents
         .map(MessageCreateEvent::getMessage)
         .filter(message -> message.getAuthor().map(user -> user.getId()
                                                                .asString()
-                                                               .equals( "KEREM_ID")).orElse(false)) // isBot check is redundant since the ID is known
+                                                               .equals(KEREM_ID))
+                                                               .orElse(false)) // isBot check is redundant since the ID is known
         .filter(message -> {
-            this.keremCounter++;
-            return true;
-        })
-        .filter(message -> {
-            return this.keremCounter % 5 == 0;
+            keremCounter++;
+            return keremCounter % 5 == 0; // Send on every 5 messages
+
         }) // Stupid "filter"
         .flatMap(Message::getChannel)
         .flatMap(channel -> channel.createMessage("test"))
