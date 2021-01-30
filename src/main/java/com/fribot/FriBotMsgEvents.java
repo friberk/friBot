@@ -41,7 +41,18 @@ public class FriBotMsgEvents
 
         }) // Stupid "filter"
         .flatMap(Message::getChannel)
-        .flatMap(channel -> channel.createMessage("test"))
+        .flatMap(channel -> channel.createMessage("O iş öyle değil <@KEREM_ID>"))
+        .subscribe();
+    }
+    
+    public void deleteGeneral()
+    {
+        FriBotMain.getClient().getEventDispatcher().on(MessageCreateEvent.class)
+        .map(MessageCreateEvent::getMessage)
+        .filter(message -> {
+            return message.getChannelId().asString().equals( "GENERAL_CHANNEL_ID");
+        })
+        .flatMap( message -> message.delete() )
         .subscribe();
     }
     
