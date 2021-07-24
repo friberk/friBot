@@ -1,0 +1,21 @@
+{
+    "env": {
+      "myDefaultIncludePath": ["${workspaceFolder}", "${workspaceFolder}/**"]
+    },
+    "configurations": [
+      {
+        "name": "Mac",
+        "intelliSenseMode": "clang-x64",
+        "includePath": ["${myDefaultIncludePath}"],
+        "macFrameworkPath": ["/System/Library/Frameworks"],
+        "cStandard": "c11",
+        "cppStandard": "c++11",
+        "browse": {
+          "path": ["${workspaceFolder}"],
+          "limitSymbolsToIncludedHeaders": true,
+          "databaseFilename": ""
+        }
+      }
+    ],
+    "version": 4
+  }
