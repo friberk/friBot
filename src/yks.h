@@ -1,10 +1,10 @@
 #ifndef __YKS_H__
 #define __YKS_H__
 
-#include "../deps/json/single_include/nlohmann/json.hpp"
-#include "../deps/sleepy-discord/deps/cpr/include/cpr/cpr.h"
 #include <string>
 #include <vector>
+#include <nlohmann/json.hpp>
+#include <cpr/cpr.h>
 
 using json = nlohmann::json;
 

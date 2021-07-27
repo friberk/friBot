@@ -2,5 +2,6 @@
   "editor.tabSize": 4,
   "[cpp]": {
     "editor.tabSize": 4,
-  }
+  },
+  "cmake.configureOnOpen": true
 }

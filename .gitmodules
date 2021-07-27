@@ -3,7 +3,3 @@
 	url = https://github.com/yourWaifu/sleepy-discord.git
 	branch = develop
 
-[submodule "deps/json"]
-	path = deps/json
-	url = https://github.com/nlohmann/json.git
-	branch = master

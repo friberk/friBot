@@ -1,25 +1,15 @@
 cmake_minimum_required (VERSION 3.6)
-project(friBot)
 
-option(USE_CLANG "build application with clang" ON)
-set(ENV{PKG_CONFIG_PATH} "/usr/local/opt/openssl/lib/pkgconfig")
+# Use clang by default
+set(CMAKE_C_COMPILER "clang")
+set(CMAKE_CXX_COMPILER "clang++")
+
+project(friBot VERSION 0.0.0 LANGUAGES C CXX)
 
 add_executable(friBot src/main.cpp src/yks.cpp src/cloudinary_uploader.cpp src/key_handler.cpp)
 
-# OpenSSL
-find_package(OpenSSL REQUIRED)
-if(OPENSSL_FOUND)
-    if(APPLE)
-        include_directories(/usr/local/Cellar/openssl@1.1/1.1.1k/include)
-        list(APPEND LIB_LIST /usr/local/Cellar/openssl@1.1/1.1.1k/lib/libssl.dylib)
-        list(APPEND LIB_LIST /usr/local/Cellar/openssl@1.1/1.1.1k/lib/libcrypto.dylib)
-        message(STATUS "OpenSSL Version: ${OPENSSL_VERSION} ${OPENSSL_INCLUDE_DIR} ${OPENSSL_LIBRARIES}")
-    else()
-        include_directories(${OPENSSL_INCLUDE_DIR})
-        list(APPEND LIB_LIST ${OPENSSL_LIBRARIES})
-        message(STATUS "OpenSSL Version: ${OPENSSL_VERSION} ${OPENSSL_INCLUDE_DIR} ${OPENSSL_LIBRARIES}")
-    endif()
-endif()
+find_package (nlohmann_json REQUIRED)
+target_link_libraries (friBot nlohmann_json)
 
 # SQLite3
 # find_package (SQLite3)

@@ -1,9 +1,9 @@
-#include "cloudinary_uploader.h"
-#include "key_handler.h"
-#include "sleepy_discord/sleepy_discord.h"
-#include "yks.h"
 #include <fstream>
 #include <string>
+#include "sleepy_discord/sleepy_discord.h"
+#include "key_handler.h"
+#include "yks.h"
+#include "cloudinary_uploader.h"
 
 class FribotClientClass : public SleepyDiscord::DiscordClient {
 public:
@@ -66,7 +66,7 @@ public:
 };
 
 int main() {
-    std::ifstream keyFile{"api_keys.json"};
+    std::ifstream keyFile{"../api_keys.json"};
     KeyHandler keyHandler{keyFile};
 
     FribotClientClass client(keyHandler.getDiscordKey(),

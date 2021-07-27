@@ -1,12 +1,12 @@
 #ifndef __CLOUDINARY_UPLOADER_H__
 #define __CLOUDINARY_UPLOADER_H__
 
-#include "../deps/json/single_include/nlohmann/json.hpp"
-#include "../deps/sleepy-discord/deps/cpr/include/cpr/cpr.h"
-#include "../deps/sleepy-discord/include/sleepy_discord/attachment.h"
-#include "key_handler.h"
 #include <ctime>
 #include <string>
+#include <cpr/cpr.h>
+#include <nlohmann/json.hpp>
+#include "sleepy_discord/attachment.h"
+#include "key_handler.h"
 
 using json = nlohmann::json;
 

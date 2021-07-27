@@ -1,9 +1,9 @@
 #ifndef __KEY_HANDLER_H__
 #define __KEY_HANDLER_H__
 
-#include "../deps/json/single_include/nlohmann/json.hpp"
 #include <fstream>
 #include <string>
+#include <nlohmann/json.hpp>
 
 using json = nlohmann::json;
 
